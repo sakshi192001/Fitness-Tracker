@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
+    <title>{{ title }}</title>
+</head>
+<body>
+    <ul>
+        <li><a href="http://127.0.0.1:5000/profile">Profile</a></li>
+        <li><a href="http://127.0.0.1:5000/home">Home</a></li>
+        <!-- <li><a href="#news">News</a></li>
+        <li><a href="#contact">Contact</a></li> -->
+        <li style="float:right"><a href="logout">Log-out</a></li>
+      </ul>
+    {% for nam,link,img in exercises_abcs %}
+    <div class="container">
+        <a href="/workout/{{ part }}/{{ exs }}/{{ link }}"><img src="{{ img }}" alt="Snow" height="250px" style="width:100%;"></a>
+        <div class="centered"><h3>{{ nam }}</h3></div>
+    </div>
+    {% endfor %}
+    
+
+    
+</body>
+</html>

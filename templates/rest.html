@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li><a href="http://127.0.0.1:5000/profile">Profile</a></li>
+        <li><a href="http://127.0.0.1:5000/home">Home</a></li>
+        <!-- <li><a href="#news">News</a></li>
+        <li><a href="#contact">Contact</a></li> -->
+        <li style="float:right"><a href="logout">Log-out</a></li>
+      </ul>
+    <h1 style="margin-left: 37%;">REST</h1>
+    <span class="timer" id="timer" style="margin-left: 45%;">2s</span><br>
+    <progress max="2" value="2" class="progress progress--rest" id="progressBar" style="margin-left: 25%;"></progress>
+
+    <script type="application/javascript">
+        const timerElement = document.getElementById("timer");
+        const progressBar = document.getElementById("progressBar")
+        var timerCounter = progressBar.max;
+        const interval = setInterval(() => {
+            if (timerCounter <= 1) {
+                window.location.href = "http://127.0.0.1:5000/workout/{{part}}/{{level}}/{{ next }}";
+                clearInterval(interval);
+            }
+            timerCounter = timerCounter - 1;
+            
+            timerElement.innerText = timerCounter + "s";
+            progressBar.value = timerCounter;
+        }, 1000);
+    </script>
+</body>
+</html>

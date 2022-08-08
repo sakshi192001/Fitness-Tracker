@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
+    <link rel="stylesheet" href="/static/style.css">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li><a href="http://127.0.0.1:5000/profile">Profile</a></li>
+        <!-- <li><a href="#news">News</a></li>
+        <li><a href="#contact">Contact</a></li> -->
+        <li style="float:right"><a href="logout">Log-out</a></li>
+      </ul>
+
+    <h2>Welcome,</h2>
+    <h3>how can we help you</h3>
+
+    {% for link,aimg,level in links_imgs %}
+    <div class="container">
+        <a href="{{ link }}"><img src={{ aimg }} height="250px" style="width:100%; padding-bottom: 0;"></a>
+        <div class="centered"><h1 style=" margin-bottom: 150%;">{{ level }}</h1></div>
+    </div>
+    {% endfor %}
+
+    
+</body>
+</html>
